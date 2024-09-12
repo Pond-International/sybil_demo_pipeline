@@ -13,7 +13,6 @@ def get_all_candidates(file_path):
     all_addresses_df = pd.DataFrame(all_addresses, columns=['ADDRESS'])
     return all_addresses_df
 
-    
 if __name__ == "__main__":
     file_path = "./data/raw_data/"
     output_path = "./data/features/"

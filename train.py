@@ -33,6 +33,7 @@ def get_metrics(y_test, y_pred):
     }
     return res
 
+
 def train_xgb(train_x, train_y, val_x, val_y, save_model_path):
     eval_set = [(val_x, val_y)]
     model = xgb.XGBClassifier(

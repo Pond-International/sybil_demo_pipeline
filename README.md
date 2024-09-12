@@ -1,4 +1,4 @@
-# Sybil Attack Address Detection Demo pipeline
+# Sybil Attack Address Detection Demo Pipeline
 
 ## Description
 This is a machine learning demo example, convenient for beginners to learn and compete

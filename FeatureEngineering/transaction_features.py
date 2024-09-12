@@ -100,7 +100,6 @@ def make_transaction_features(transaction_raw_file, output_path, filter_df):
     print("withdrawal_average_value_df done")
     withdrawal_maximum_value_df = calculate_withdrawal_maximum_value(data_df, filter_df)
     print("withdrawal_maximum_value_df done")
-
     final_df = filter_df.copy()
     dataframes = [
         all_action_counts_df,
