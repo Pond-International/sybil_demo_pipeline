@@ -39,10 +39,10 @@ def calculate_max_nonce_per_contract(data_df, filter_df):
     max_nonce_per_address = melted_df.groupby('ADDRESS')['NONCE'].max().reset_index()
     result_df = max_nonce_per_address[max_nonce_per_address['ADDRESS'].isin(filter_df['ADDRESS'])]
     result_df = result_df.rename(columns={'NONCE': 'TRANSACTION_MAX_NONCE'})
+    result_df['TRANSACTION_MAX_NONCE'] = result_df['TRANSACTION_MAX_NONCE'].astype(int)
     return result_df
 
 
-#ETH平均转入value数
 def calculate_deposit_average_value(data_df, filter_df):
     data_df['VALUE'] = pd.to_numeric(data_df['VALUE'], errors='coerce')
     average_values = data_df.groupby('TO_ADDRESS')['VALUE'].mean()
@@ -52,7 +52,6 @@ def calculate_deposit_average_value(data_df, filter_df):
     return result_df
 
 
-#ETH最大转入value数
 def calculate_deposit_maximum_value(data_df, filter_df):
     data_df['VALUE'] = pd.to_numeric(data_df['VALUE'], errors='coerce')
     maximum_values = data_df.groupby('TO_ADDRESS')['VALUE'].max()
@@ -62,7 +61,6 @@ def calculate_deposit_maximum_value(data_df, filter_df):
     return result_df
 
 
-#ETH平均转出value数
 def calculate_withdrawal_average_value(data_df, filter_df):
     data_df['VALUE'] = pd.to_numeric(data_df['VALUE'], errors='coerce')
     average_values = data_df.groupby('FROM_ADDRESS')['VALUE'].mean()
@@ -71,7 +69,7 @@ def calculate_withdrawal_average_value(data_df, filter_df):
     result_df = withdrawal_average_values_df[withdrawal_average_values_df['ADDRESS'].isin(filter_df['ADDRESS'])]
     return result_df
 
-#ETH最大转出value数
+
 def calculate_withdrawal_maximum_value(data_df, filter_df):
     data_df['VALUE'] = pd.to_numeric(data_df['VALUE'], errors='coerce')
     maximum_values = data_df.groupby('FROM_ADDRESS')['VALUE'].max()

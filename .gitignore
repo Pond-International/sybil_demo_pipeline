@@ -1,2 +1,5 @@
 data/
 __pycache__/
+saved_model/
+pred.csv
+metrics.py

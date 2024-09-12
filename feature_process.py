@@ -11,12 +11,8 @@ def get_all_candidates(file_path):
     test_addresses = test_df['ADDRESS']
     all_addresses = pd.concat([train_addresses, test_addresses], ignore_index=True)
     all_addresses_df = pd.DataFrame(all_addresses, columns=['ADDRESS'])
-    print(all_addresses_df)
     return all_addresses_df
 
-
-
-    
     
 if __name__ == "__main__":
     file_path = "./data/raw_data/"
